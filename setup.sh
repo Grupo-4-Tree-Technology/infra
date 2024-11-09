@@ -17,7 +17,20 @@ sudo systemctl start docker
 # Rodando o Docker Compose para iniciar os containers (dentro da pasta onde o docker-compose.yml está):
 sudo docker-compose up -d
 
-# Adicionando o comando ao cron para iniciar o container Java a cada minuto:
-(crontab -l 2>/dev/null; echo "* * * * * sudo docker start container-java-treetech") | sudo crontab -
+# Comando utilizado pelo cron
+COMMAND="sudo docker container-java-treetech"
+
+# Define o cron timing (exemplo: rodar a cada minuto)
+CRON_TIME="* * * * *"
+
+# Verifica se o comando já existe no crontab
+crontab -l | grep -q "$COMMAND"
+if [ $? -ne 0 ]; then
+  # Se o comando não for encontrado, adiciona o cron job
+  (crontab -l 2>/dev/null; echo "$CRON_TIME $COMMAND") | crontab -
+  echo "Comando adicionado ao crontab com sucesso!"
+else
+  echo "Comando já existe no crontab."
+fi
 
 echo "Configuração concluída com sucesso!"

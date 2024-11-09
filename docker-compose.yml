@@ -8,7 +8,7 @@ services:
       MYSQL_DATABASE: TreeTechnology
     volumes:
       - db_data:/var/lib/mysql
-      - ./dockerBD/arquivos_sql:/docker-entrypoint-initdb.d
+      - ./arquivos_sql:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
   node:

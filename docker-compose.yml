@@ -1,0 +1,29 @@
+services:
+  mysql:
+    container_name: container-bd-treetech
+    image: treetechnology/imagem-bd-treetech:v1
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: urubu100
+      MYSQL_DATABASE: TreeTechnology
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./dockerBD/arquivos_sql:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+  node:
+    container_name: container-node-treetech
+    image: treetechnology/imagem-node-treetech:v2
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "80:80"
+  java:
+    container_name: container-java-treetech
+    image: treetechnology/imagem-java-treetech:v1
+    depends_on:
+      - mysql
+
+volumes:
+  db_data:

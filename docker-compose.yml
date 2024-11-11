@@ -21,7 +21,7 @@ services:
       - "80:80"
   java:
     container_name: container-java-treetech
-    image: treetechnology/imagem-java-treetech:v1
+    image: treetechnology/imagem-java-treetech:v2
     depends_on:
       - mysql
 

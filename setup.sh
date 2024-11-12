@@ -18,7 +18,7 @@ sudo systemctl start docker
 sudo docker-compose up -d
 
 # Comando utilizado pelo cron
-COMMAND="sudo docker container-java-treetech"
+COMMAND="sudo docker start container-java-treetech"
 # Define o cron timing (exemplo: rodar a cada minuto)
 CRON_TIME="* * * * *"
 # Verifica se o crontab já existe para o usuário

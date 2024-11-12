@@ -11,6 +11,14 @@ services:
       - ./arquivos_sql:/docker-entrypoint-initdb.d
     ports:
       - "3306:3306"
+    networks:
+      - treetech-network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
   node:
     container_name: container-node-treetech
     image: treetechnology/imagem-node-treetech:v2
@@ -19,11 +27,21 @@ services:
       - mysql
     ports:
       - "80:80"
+    networks:
+      - treetech-network
+
   java:
     container_name: container-java-treetech
     image: treetechnology/imagem-java-treetech:v2
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
+    networks:
+      - treetech-network
 
 volumes:
   db_data:
+
+networks:
+  treetech-network:
+    driver: bridge

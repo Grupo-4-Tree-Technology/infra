@@ -39,7 +39,7 @@ services:
     networks:
       - treetech-network
     environment:
-      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
 
 volumes:
   db_data:

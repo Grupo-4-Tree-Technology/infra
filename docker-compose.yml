@@ -1,7 +1,7 @@
 services:
   mysql:
     container_name: container-bd-treetech
-    image: treetechnology/imagem-bd-treetech:v1
+    image: treetechnology/imagem-bd-treetech:v2
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: urubu100
@@ -21,7 +21,7 @@ services:
 
   node:
     container_name: container-node-treetech
-    image: treetechnology/imagem-node-treetech:v2
+    image: treetechnology/imagem-node-treetech:v3
     restart: always
     depends_on:
       - mysql
@@ -32,14 +32,12 @@ services:
 
   java:
     container_name: container-java-treetech
-    image: treetechnology/imagem-java-treetech:v2
+    image: treetechnology/imagem-java-treetech:v3
     depends_on:
       mysql:
         condition: service_healthy
     networks:
       - treetech-network
-    environment:
-      SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
 
 volumes:
   db_data:

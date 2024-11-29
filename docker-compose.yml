@@ -21,7 +21,7 @@ services:
 
   node:
     container_name: container-node-treetech
-    image: treetechnology/imagem-node-treetech:v3
+    image: treetechnology/imagem-node-treetech:v4
     restart: always
     depends_on:
       - mysql

@@ -166,13 +166,13 @@ INSERT INTO veiculo (placa, modelo, ano, fkEmpresa) VALUES
 ('GHI9012', 'Modelo Z', 2021, 2),
 ('MNO7890', 'Modelo V', 2020, 2);
 INSERT INTO rota (ponto_partida, ponto_destino, fkEmpresa) VALUES
-('Méier (Zona Norte)', 'Avenida Rio Branco', 1),
-('Terminal Central, Campinas - SP', 'Parque Empresarial Techno Park, Hortolândia - SP', 2),
-('Terminal Urbano Cecap, Guarulhos - SP', 'Avenida Paulista, São Paulo - SP', 2),
-('Estação Santo André, Santo André - SP', 'Avenida Engenheiro Luiz Carlos Berrini, São Paulo - SP', 2),
-('Parque das Industrias (Nova Veneza), Sumaré - SP', 'Rod. Dom Pedro I São Paulo', 1),
 ('Avenida do Estado, 5533', 'Rua Haddock Lobo, 593', 1),
-('Estação Artur Alvim, São Paulo - SP', 'Alphaville Industrial, Barueri - SP', 1);
+('Avenida dos Autonomistas, Osasco - SP', 'Avenida Monteiro Lobato, Guarulhos - SP', 1),
+('Terminal Central, Campinas - SP', 'Parque Empresarial Techno Park, Hortolandia - SP', 2),
+('Terminal Urbano Cecap, Guarulhos - SP', 'Avenida Paulista - SP', 2),
+('Estação Santo Andre, Santo Andre - SP', 'Avenida Engenheiro Luiz Carlos Berrini - SP', 2),
+('Aeroporto Congonhas', 'Rua Dona Lucia Pimentel, Sorocaba - SP', 1),
+('Artur Alvim - SP', 'Alphaville Industrial, Barueri - SP', 1);
 INSERT INTO trajeto (fkRota, fkVeiculo) VALUES
 (1, 1),
 (2, 3),
@@ -185,5 +185,4 @@ INSERT INTO rua_intermediaria (rua, ordem, fkRota) VALUES
 ('Avenida Monteiro Lobato, Guarulhos - SP', 1, 3),
 ('Techno Park, Campinas - SP', 1, 5),
 ('Av Guilherme Campos, 500', 2, 5),
-('Avenida Radial Leste, São Paulo - SP', 1, 7);
-
+('Avenida Radial Leste - SP', 1, 7);
